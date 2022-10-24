@@ -8,13 +8,13 @@ function SongCollection () {
     return (
         <div className='songcollection'>
      
-        <h1>Collection</h1>
-       
-        <p>Killer Queen<button><Link to="/songdisplay"> Click to see song detail</Link></button></p> 
-        
-    
-        
-      <button><Link to="/songentry"> Add A New Song</Link></button>
+        <h1>Song Collection</h1>
+       <div>
+        <p>► Song1<button><Link to="/songdisplay"> Click to see song detail</Link></button><button>Delete Song</button></p> 
+        <p>► Song2<button><Link to="/songdisplay"> Click to see song detail</Link></button></p> 
+        <p>► Song3<button><Link to="/songdisplay"> Click to see song detail</Link></button></p> 
+        </div>
+      <button><Link to="/songentry"> Add New Song</Link></button>
      
     </div>
     )

@@ -7,7 +7,7 @@ const User = () => {
     return (
         <div className='userentry'>
       
-        <h1>Enter Your Username</h1>
+        <h1>Enter Username</h1>
         <input
             type="text"  
          />
