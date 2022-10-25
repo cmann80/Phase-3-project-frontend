@@ -6,7 +6,7 @@ const SongDisplay = () => {
    
     return (
         <div className='songdisplay'>
-     
+
         <h1>Song Display</h1>
         <p>Title:</p>
         <p>Artist:</p>
@@ -19,7 +19,7 @@ const SongDisplay = () => {
         <button><Link to="/songcollection"> Back to Song Collection</Link></button>
 
         
-     
+    
     </div>
     )
     
