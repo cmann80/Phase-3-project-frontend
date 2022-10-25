@@ -1,34 +1,25 @@
 
 import './UserEntry.css';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const UserEntry = () => {
-    
-    useEffect(() => {
-        fetch("http://localhost:9292/api/users")
-            .then((r) => r.json())
-            .then((users) => setAllUsers(users));
-        }, []);
+const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers}) => {
 
-        const[allUsers, setAllUsers] = useState([])
 
-    const[userFormValue, setUserFormValue] =useState("")
+
 
     function search(){
         for (let i=0; i < allUsers.length; i++) {
             if (allUsers[i].username === userFormValue) {
-                console.log(allUsers[i])
-                return allUsers[i];
+                setSelectedUser(allUsers[i])
             }
-            else console.log("no user found")
-            
         }
     }
 
     function handleSubmit(e){
         e.preventDefault(e)
         search()
+        
     }
 
     function handleChange(e){
