@@ -49,3 +49,27 @@ body {
 }
 
 
+.home {  
+  height: 11vh;
+  background-color: #20B2AA;
+  position: fixed;
+}
+
+.home::before {   
+  content: "";
+  width: 100%;
+  height: 42px;
+  position: absolute;
+  bottom: -0.3%;
+  left: 0;
+  background-size: auto;
+  background-repeat: repeat no-repeat;
+  background-position: 37vw bottom;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 1200  91' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0 66L50 62C100 58 200 50 300 34C400 17 500 -7 600 1C700 9 800 50 900 66C1000 83 1100 75 1150 70L1200 66V91H1150C1100 91 1000 91 900 91C800 91 700 91 600 91C500 91 400 91 300 91C200 91 100 91 50 91H0V66Z' fill='%23ffffff'/></svg>");
+}
+
+@media(max-width:850px) {
+  .home::before {    
+    height: 21px
+  }  
+}
