@@ -5,6 +5,10 @@ import {Link} from 'react-router-dom'
 
 function SongCollection (selectedUser) {
 
+  function renderSongList(){
+    selectedUser.songs.map(songs => console.log(songs))
+  }
+
     return (
         <div className='songcollection'>
     
