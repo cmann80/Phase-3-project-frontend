@@ -9,7 +9,6 @@ import SongEntry from "./components/SongEntry/SongEntry";
 import Home from "./components/UserEntry/Home";
 
 
-
 function App() {
 
     
@@ -33,6 +32,8 @@ function App() {
           <div className="App">
             <Home />
             <Routes>
+
+             
               <Route exact path="/" 
               element={<UserEntry 
                 userFormValue={userFormValue} 
@@ -56,6 +57,7 @@ function App() {
               element={<SongEntry 
               />} 
             />
+
           </Routes>
           </div>
           </Router>
