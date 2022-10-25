@@ -1,6 +1,8 @@
 
 import './UserEntry.css';
-import React, { useState, useEffect } from 'react';
+
+import React from 'react';
+
 import { Link, useNavigate } from 'react-router-dom';
 
 
@@ -8,31 +10,34 @@ import { Link, useNavigate } from 'react-router-dom';
 const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers}) => {
     const navigate = useNavigate();
 
-
+    const navigate = useNavigate(); 
 
 
     function search(){
         for (let i=0; i < allUsers.length; i++) {
             if (allUsers[i].username === userFormValue) {
-
-            
-
                 setSelectedUser(allUsers[i])
             }
-
         }
     }
+
+    // search function that avoids pulling the whole database
+    // function search(){
+    
+    // }
 
     function handleSubmit(e){
         e.preventDefault(e)
         search()
-        navigate('/songcollection');
+
+        navigate('/songcollection')
 
     }
 
     function handleChange(e){
         setUserFormValue(e.target.value)
-        console.log(e.target.value)
+
+
     }
     
     return (
