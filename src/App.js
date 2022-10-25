@@ -10,13 +10,18 @@ import Home from "./components/UserEntry/Home";
 
 
 
-function App() {
-  // const [data, setData] = useState([])
-  //   useEffect(() => {
-  //       fetch('http://localhost:9292/api/users/1')
-  //       .then(r => r.json())
-  //       .then(data => {setData(data)}).catch(console.error)
-  //     }, [])
+function App({userFormValue}) {
+//   const [data, setData] = useState([])
+
+//   useEffect(() => {
+//     fetch('http://localhost:9292/api/users')
+//     .then(r => r.json())
+//     .then(data =>
+//        setData(data)
+//   )
+//   // .catch(console.error)
+  
+// }, []);
       
 
   return (
@@ -25,7 +30,7 @@ function App() {
             <Home />
             <Routes>
               <Route exact path="/" element={<UserEntry />} />
-              <Route exact path="/songcollection" element={<SongCollection />} />
+              <Route exact path="/songcollection" element={<SongCollection  data1={userFormValue} />} />
               <Route exact path="/songdisplay" element={<SongDisplay />} />
               <Route exact path="/songentry" element={<SongEntry />} />
           </Routes>

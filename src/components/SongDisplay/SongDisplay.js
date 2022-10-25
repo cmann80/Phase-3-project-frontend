@@ -3,6 +3,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 
 const SongDisplay = () => {
+   
     return (
         <div className='songdisplay'>
      
@@ -14,7 +15,7 @@ const SongDisplay = () => {
         <p>Average Rating For All Users:</p>
         <p>This song is in 5 other collections!</p>
         
-
+        <button>Update Your Rating</button>
         <button><Link to="/songcollection"> Back to Song Collection</Link></button>
 
         
