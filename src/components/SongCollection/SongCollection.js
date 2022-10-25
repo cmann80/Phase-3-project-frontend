@@ -5,9 +5,8 @@ import {Link} from 'react-router-dom'
 
 
 
-function SongCollection (selectedUser) {
-
-
+function SongCollection ({selectedUser}) {
+ 
   function renderSongList(){
     selectedUser.songs.map(songs => console.log(songs))
   }
@@ -17,7 +16,7 @@ function SongCollection (selectedUser) {
    
         <div className='songcollection'>
     
-        <h1>Song Collection</h1>
+        <h1>{selectedUser.username}'s Song Collection</h1>
 
       <div>
         <p>► Song1<button><Link to="/songdisplay"> Click to see song detail</Link></button><button>Delete Song</button></p> 

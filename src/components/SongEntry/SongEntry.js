@@ -1,21 +1,15 @@
 import './SongEntry.css';
-import React, { useEffect, useState }  from 'react';
+import React, { useState }  from 'react';
 
 
 import { useNavigate } from 'react-router-dom'
 
-const SongEntry = () => {
+const SongEntry = ({ selectedUser }) => {
     const navigate = useNavigate();
-    const [data, setData] = useState([])
     const [songsList, setSongsList] = useState([])
-
-    useEffect(() => {
-        fetch("http://localhost:9292/api/users/1")
-            .then((r) => r.json())
-            .then((data) => setData(data));
-        }, []);
-
-        console.log(data.collections)
+    
+// console.log(selectedUser.id)
+// console.log(selectedUser.songs)
 
     const [songTitle, setSongTitle] = useState("")
     const [songArtist, setSongArtist] = useState("")
@@ -24,14 +18,10 @@ const SongEntry = () => {
 
     
 
-
-
-
-
     function handleSubmit(e) {
         e.preventDefault()
-        console.log('hi')
-        fetch("http://localhost:9292/api/users/1/" , {
+        // console.log('test')
+        fetch(`http://localhost:9292/api/users/${selectedUser.id}/` , {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
@@ -39,15 +29,14 @@ const SongEntry = () => {
                artist: songArtist,
                genre: songGenre, 
                song_rating: songRating,
-               user_id: 1,
-               
-            //    song_rating: songRating
+               user_id: selectedUser.id,
             }),
         })
         .then(r => r.json())
-        .then((newSong) => {setSongsList([...data.collections, newSong])})
-        
-        console.log(songsList)
+  
+        .then((newSong) => {setSongsList([...selectedUser.songs, newSong])})
+    
+     console.log(songsList)
         navigate('/songcollection');
             //   setSongTitle("")
             //   setSongArtist('')

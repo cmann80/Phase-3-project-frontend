@@ -44,17 +44,18 @@ function App() {
                 />}
               />
               <Route exact path="/songcollection" 
-              element={<SongCollection 
+              element={<SongCollection selectedUser={selectedUser}
               />} 
             />
               <Route exact path="/songdisplay" 
-              element={<SongDisplay 
+              element={<SongDisplay  
               userFormValue={userFormValue}
               setUserFormValue={setUserFormValue}
               />} 
             />
               <Route exact path="/songentry" 
               element={<SongEntry 
+                selectedUser={selectedUser}
               />} 
             />
 

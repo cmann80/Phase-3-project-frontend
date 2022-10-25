@@ -1,12 +1,12 @@
 
 import './UserEntry.css';
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
 const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers}) => {
-
+    const navigate = useNavigate();
 
 
 
@@ -26,7 +26,7 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers})
     function handleSubmit(e){
         e.preventDefault(e)
         search()
-
+        navigate('/songcollection');
 
     }
 
@@ -45,7 +45,7 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers})
             value={userFormValue}
         />
 
-        <Link to="/songcollection" className="btn btn-1" onClick={handleSubmit}> View Song Collection</Link>
+        <button type="submit" className="btn btn-1" onClick={handleSubmit}> View Song Collection</button>
         
         
     </div>
