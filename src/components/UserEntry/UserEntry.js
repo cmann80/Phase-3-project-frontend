@@ -29,7 +29,6 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers})
     function handleSubmit(e){
         e.preventDefault(e)
         search()
-
         navigate('/songcollection')
 
     }

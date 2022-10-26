@@ -9,6 +9,7 @@ import SongEntry from "./components/SongEntry/SongEntry";
 import Home from "./components/UserEntry/Home";
 
 
+
 function App() {
 
     
@@ -26,6 +27,9 @@ function App() {
   // state for selected user
   const[selectedUser, setSelectedUser]=useState({})
   console.log(selectedUser)
+// state for current song
+  const [fullSong, setFullSong] = useState(null);
+  console.log(fullSong)
 
   return (
         <Router>
@@ -45,12 +49,15 @@ function App() {
               />
               <Route exact path="/songcollection" 
               element={<SongCollection selectedUser={selectedUser}
+              setFullSong={setFullSong}
               />} 
             />
               <Route exact path="/songdisplay/:id" 
               element={<SongDisplay  
               userFormValue={userFormValue}
               setUserFormValue={setUserFormValue}
+              fullSong={fullSong}
+              setFullSong={setFullSong}
               />} 
             />
               <Route exact path="/songentry" 
