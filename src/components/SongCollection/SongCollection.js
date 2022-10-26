@@ -7,10 +7,18 @@ import {Link} from 'react-router-dom'
 
 function SongCollection ({selectedUser}) {
  
-  function renderSongList(){
-    const songListItem = selectedUser.songs.map(song => <li>{song.title}</li>)
-    return songListItem
-  }
+  // function renderSongList(){
+  //   const songListItem = selectedUser.songs.map(song => <li>{song.title}</li>)
+  //   return songListItem
+  // }
+ function handleClick(e){
+  const element = e.target
+  console.log(element)
+ }
+
+const renderSongList = selectedUser.songs.map(song => {
+  return (<li onClick={handleClick} key={song.id}>{song.title}</li>)
+})
 
 
     return (

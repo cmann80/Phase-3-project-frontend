@@ -10,7 +10,7 @@ import { Link, useNavigate } from 'react-router-dom';
 const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers}) => {
     const navigate = useNavigate();
 
-    const navigate = useNavigate(); 
+
 
 
     function search(){
