@@ -12,16 +12,9 @@ import Home from "./components/UserEntry/Home";
 
 function App() {
 
-    
-  useEffect(() => {
-    fetch("http://localhost:9292/api/users")
-        .then((r) => r.json())
-        .then((users) => setAllUsers(users));
-    }, []);
   
-  // state for all users from datatbase (eventually replace with
-  // method to search without downloading the database) 
-  const[allUsers, setAllUsers] = useState([])
+
+
 
   // state for the UserEntry form value
   const[userFormValue, setUserFormValue]=useState("")
@@ -45,7 +38,6 @@ function App() {
               element={<UserEntry 
                 userFormValue={userFormValue} 
                 setUserFormValue={setUserFormValue} 
-                allUsers={allUsers}
                 selectedUser={selectedUser}
                 setSelectedUser= {setSelectedUser} 
                 />}

@@ -7,7 +7,7 @@ import {useNavigate } from 'react-router-dom';
 
 
 
-const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, selectedUser, setAllUsers, allUsers}) => {
+const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser}) => {
     const navigate = useNavigate();
 
 
@@ -22,14 +22,14 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, selectedUs
     }
 
 
-
+    // handle submission of user form
     function handleSubmit(e){
         e.preventDefault(e)
         searchRemote()
         navigate('/songcollection')
 
     }
-
+    // handle change of user form for controlled input
     function handleChange(e){
         setUserFormValue(e.target.value)
     }

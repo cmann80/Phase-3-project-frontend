@@ -8,9 +8,8 @@ const SongEntry = ({ selectedUser }) => {
     const navigate = useNavigate();
     const [songsList, setSongsList] = useState([])
     
-// console.log(selectedUser.id)
-// console.log(selectedUser.songs)
 
+    // states for song information
     const [songTitle, setSongTitle] = useState("")
     const [songArtist, setSongArtist] = useState("")
     const [songGenre, setSongGenre] = useState("")
@@ -20,7 +19,6 @@ const SongEntry = ({ selectedUser }) => {
 
     function handleSubmit(e) {
         e.preventDefault()
-        // console.log('test')
         fetch(`http://localhost:9292/api/users/${selectedUser.id}/` , {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
