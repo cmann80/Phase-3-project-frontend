@@ -5,8 +5,11 @@ import SongListItem from "../SongListItem/SongListItem"
 
 
 
-function SongCollection ({selectedUser, setFullSong}) {
+function SongCollection ({selectedUser, setFullSong, refreshSongList}) {
 
+
+
+  
   console.log(selectedUser?.songs)
 
     return (
@@ -17,7 +20,7 @@ function SongCollection ({selectedUser, setFullSong}) {
 
           <div>
             <ul>
-              {selectedUser?.songs?.map((songInfo) => (<SongListItem key={songInfo.id} songInfo={songInfo} setFullSong={setFullSong} />))}
+              {selectedUser?.songs?.map((songInfo) => (<SongListItem key={songInfo.id} songInfo={songInfo} setFullSong={setFullSong} refreshSongList={refreshSongList} />))}
             </ul>
           </div>
       <button><Link to="/songentry"> Add New Song</Link></button>

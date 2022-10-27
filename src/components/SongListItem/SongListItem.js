@@ -2,10 +2,8 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./SongListItem.css"
 
-function SongListItem({setFullSong, songInfo}){
+function SongListItem({setFullSong, songInfo, refreshSongList}){
 
-    // state for deleted songs
-    const [deleteSong, setDeleteSong] = useState("")
     
     console.log(songInfo)
     function handleClick(){
@@ -16,8 +14,8 @@ function SongListItem({setFullSong, songInfo}){
         fetch(`http://localhost:9292/api/songs/${songInfo?.id}`, {
             method: 'DELETE',
         })
-        .then((res) => res.json())
-        .then((deleted) => setDeleteSong(deleted))
+        .then(response => {if(response.ok){}
+        })
     }
 // console.log(deleteSong)
     return (

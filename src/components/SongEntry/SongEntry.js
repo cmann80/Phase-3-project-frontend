@@ -4,9 +4,8 @@ import React, { useState }  from 'react';
 
 import { useNavigate } from 'react-router-dom'
 
-const SongEntry = ({ selectedUser }) => {
+const SongEntry = ({ selectedUser, refreshSongList, setSelectedUser }) => {
     const navigate = useNavigate();
-    const [songsList, setSongsList] = useState([])
     
 
     // states for song information
@@ -32,10 +31,15 @@ const SongEntry = ({ selectedUser }) => {
         })
         .then(r => r.json())
 
-        .then((newSong) => {setSongsList([...selectedUser.songs, newSong])})
-    
-    console.log(songsList)
-        navigate('/songcollection');
+        .then((newSong) => {
+            setSelectedUser({
+                ...selectedUser,
+                songs: [...selectedUser.songs, newSong]
+            })
+            navigate('/songcollection');           
+        })
+            
+            
             //   setSongTitle("")
             //   setSongArtist('')
             //   setSongGenre("")
