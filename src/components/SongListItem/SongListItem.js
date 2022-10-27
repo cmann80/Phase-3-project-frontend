@@ -6,7 +6,7 @@ function SongListItem({setFullSong, songInfo}){
 
     const [deleteSong, setDeleteSong] = useState("")
     
-// console.log(songInfo)
+    console.log(songInfo)
     function handleClick(){
         setFullSong(songInfo)
     }

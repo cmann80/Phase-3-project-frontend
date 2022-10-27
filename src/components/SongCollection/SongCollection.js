@@ -7,7 +7,7 @@ import SongListItem from "../SongListItem/SongListItem"
 
 function SongCollection ({selectedUser, setFullSong}) {
 
-  // console.log(selectedUser.songs)
+  console.log(selectedUser?.songs)
 
     return (
   
@@ -17,7 +17,7 @@ function SongCollection ({selectedUser, setFullSong}) {
 
           <div>
             <ul>
-              {selectedUser.songs.map((songInfo) => (<SongListItem key={songInfo.id} songInfo={songInfo} setFullSong={setFullSong} />))}
+              {selectedUser?.songs?.map((songInfo) => (<SongListItem key={songInfo.id} songInfo={songInfo} setFullSong={setFullSong} />))}
             </ul>
           </div>
       <button><Link to="/songentry"> Add New Song</Link></button>
