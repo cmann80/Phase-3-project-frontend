@@ -12,10 +12,6 @@ import Home from "./components/UserEntry/Home";
 
 function App() {
 
-  
-
-
-
   // state for the UserEntry form value
   const[userFormValue, setUserFormValue]=useState("")
 
@@ -26,6 +22,15 @@ function App() {
   const [fullSong, setFullSong] = useState(null);
   // console.log(fullSong)
 
+
+  const refreshSongList = () =>{
+    
+      fetch(`http://localhost:9292/api/users/user_search/${selectedUser.username}`)
+          .then((r) => r.json())
+          .then((user) => {
+              console.log(user)
+              setSelectedUser(user)})
+  }
 
   return (
         <Router>
@@ -43,8 +48,11 @@ function App() {
                 />}
               />
               <Route exact path="/songcollection" 
-              element={<SongCollection selectedUser={selectedUser}
+              element={<SongCollection 
+              selectedUser={selectedUser}
+              setSelectedUser={setSelectedUser}
               setFullSong={setFullSong}
+              refreshSongList={refreshSongList}
               />} 
             />
               <Route exact path="/songdisplay/:id" 
@@ -59,6 +67,8 @@ function App() {
               <Route exact path="/songentry" 
               element={<SongEntry 
                 selectedUser={selectedUser}
+                refreshSongList={refreshSongList}
+                setSelectedUser={setSelectedUser}
               />} 
             />
 
