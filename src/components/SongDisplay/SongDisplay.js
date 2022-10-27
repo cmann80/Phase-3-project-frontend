@@ -76,6 +76,7 @@ function handleSubmitUpdate(e){
         <div className='songdisplay'>
 
         <h1>Song Display</h1>
+
         <p>Title: {songCollection?.title}</p>
         <p>Artist: {songCollection?.artist}</p>
         <p>Genre: {songCollection?.genre}</p>
@@ -90,7 +91,7 @@ function handleSubmitUpdate(e){
             
             </p>
 
-      
+
 
         <p>{avgSong}</p>
         

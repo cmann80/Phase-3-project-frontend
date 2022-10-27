@@ -25,18 +25,18 @@ const SongEntry = ({ selectedUser }) => {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
-               title: songTitle,
-               artist: songArtist,
-               genre: songGenre, 
-               song_rating: songRating,
-               user_id: selectedUser.id,
+                title: songTitle,
+                artist: songArtist,
+                genre: songGenre, 
+                song_rating: songRating,
+                user_id: selectedUser.id,
             }),
         })
         .then(r => r.json())
-  
+
         .then((newSong) => {setSongsList([...selectedUser.songs, newSong])})
     
-     console.log(songsList)
+    console.log(songsList)
         navigate('/songcollection');
             //   setSongTitle("")
             //   setSongArtist('')
@@ -46,7 +46,7 @@ const SongEntry = ({ selectedUser }) => {
 
     return (
         <div className='songentry'>
-     
+
         <h2>New Song Entry</h2>
         <form onSubmit= {handleSubmit} >
             Title: <input type="text" name="name" placeholder="Title" value={songTitle} 

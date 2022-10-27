@@ -7,13 +7,13 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 
-const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers}) => {
+const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, setAllUsers, allUsers}) => {
     const navigate = useNavigate();
 
 
 
-
-    function search(){
+    // search function based on downloading the entire user table
+    function searchLocal(){
         for (let i=0; i < allUsers.length; i++) {
             if (allUsers[i].username === userFormValue) {
                 setSelectedUser(allUsers[i])
@@ -21,14 +21,18 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser, allUsers})
         }
     }
 
-    // search function that avoids pulling the whole database
-    // function search(){
-    
-    // }
+    //search function that only retrieves one user
+    function searchRemote(){
+        fetch(`http://localhost:9292/api/user/${userFormValue}`)
+        .then((r) => r.json())
+        .then((user) => console.log(user));
+        
+    }
 
     function handleSubmit(e){
         e.preventDefault(e)
-        search()
+        searchLocal()
+        searchRemote()
         navigate('/songcollection')
 
     }
