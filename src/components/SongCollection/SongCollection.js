@@ -7,7 +7,7 @@ import SongListItem from "../SongListItem/SongListItem"
 
 function SongCollection ({selectedUser, setFullSong}) {
 
-  console.log(selectedUser.songs)
+  // console.log(selectedUser.songs)
 
     return (
   
