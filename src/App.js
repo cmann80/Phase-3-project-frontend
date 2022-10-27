@@ -22,14 +22,17 @@ function App() {
   // state for all users from datatbase (eventually replace with
   // method to search without downloading the database) 
   const[allUsers, setAllUsers] = useState([])
+
   // state for the UserEntry form value
   const[userFormValue, setUserFormValue]=useState("")
+
   // state for selected user
   const[selectedUser, setSelectedUser]=useState({})
-  console.log(selectedUser)
-// state for current song
+
+  // state for current song
   const [fullSong, setFullSong] = useState(null);
   console.log(fullSong)
+
 
   return (
         <Router>
