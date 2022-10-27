@@ -7,3 +7,17 @@
 .songdisplay h1{
     padding: 100px 0 0 0;
   }
+
+.songlistitem .btn2 {
+
+  display: inline-block;
+  
+ 
+}
+
+.songlistitem li {
+
+  display: inline-block;
+  
+ 
+}

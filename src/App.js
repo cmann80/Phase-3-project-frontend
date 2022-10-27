@@ -29,7 +29,7 @@ function App() {
   console.log(selectedUser)
 // state for current song
   const [fullSong, setFullSong] = useState(null);
-  console.log(fullSong)
+  // console.log(fullSong)
 
   return (
         <Router>

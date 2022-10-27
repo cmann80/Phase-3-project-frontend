@@ -5,18 +5,30 @@ import {Link, useParams } from 'react-router-dom'
 
 const SongDisplay = ({fullSong, setFullSong}) => {
 
+    const [songCollection, setSongCollection] = useState("")
     const [avgSong, setAvgSong] = useState(null);
-    const [newSongRating, setNewSongRating] = useState("");
+    const [newSongRating, setNewSongRating] = useState(fullSong?.song_rating);
 
     const params = useParams(); 
-    
+        // Fetch Song 
+        useEffect(() => {
+            if(fullSong?.id){
+            fetch(`http://localhost:9292/api/songs/${fullSong?.id}`)
+            .then(res => res.json())
+            .then(data => {
+                setSongCollection(data)
+            })
+            .catch(() => console.error("There was an error loading"))}
+        },[])
+        
+
     // Fetch 1 collection with song rating, title, artist, genre
     useEffect(() => {
-        console.log(params.id)
+        // console.log(params.id)
         fetch(`http://localhost:9292/api/collections/${params?.id}`)
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            // console.log(data)
             setFullSong(data)
         })
         .catch(() => console.error("There was an error loading the song data"))
@@ -34,21 +46,40 @@ const SongDisplay = ({fullSong, setFullSong}) => {
         .catch(() => console.error("There was an error loading the avg data"))}
     },[fullSong])
 
+
+
+
+
+
+
 // Update Song Rating
 
 function handleSubmitUpdate(e){
     e.preventDefault();
-    console.log(newSongRating)
+    // console.log(newSongRating)
+
+    fetch(`http://localhost:9292/api/collections/${params?.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            song_rating: newSongRating,
+        }),
+    })
+        .then((r) => r.json())
+        .then((rating) => setNewSongRating(rating))
+    
 }
 
     return (
         <div className='songdisplay'>
 
         <h1>Song Display</h1>
-        <p>Title: {fullSong?.song?.title}</p>
-        <p>Artist: {fullSong?.song?.artist}</p>
-        <p>Genre: {fullSong?.song?.genre}</p>
-        <p>Your Rating: {fullSong?.song_rating}   <select name="newrating" value={newSongRating} 
+        <p>Title: {songCollection?.title}</p>
+        <p>Artist: {songCollection?.artist}</p>
+        <p>Genre: {songCollection?.genre}</p>
+        <p>Your Rating: {songCollection?.song_id}   <select name="newrating" value={newSongRating} 
             onChange={(e) => setNewSongRating(parseInt(e.target.value)) }>
                 <option value="1">1</option>
                 <option value="2">2</option>
