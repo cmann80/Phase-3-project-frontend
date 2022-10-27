@@ -4,6 +4,7 @@ import "./SongListItem.css"
 
 function SongListItem({setFullSong, songInfo}){
 
+    // state for deleted songs
     const [deleteSong, setDeleteSong] = useState("")
     
     console.log(songInfo)
