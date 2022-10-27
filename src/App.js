@@ -61,6 +61,7 @@ function App() {
               setUserFormValue={setUserFormValue}
               fullSong={fullSong}
               setFullSong={setFullSong}
+              selectedUser={selectedUser}
               />} 
             />
               <Route exact path="/songentry" 

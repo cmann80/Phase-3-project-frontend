@@ -18,7 +18,7 @@ function SongListItem({setFullSong, songInfo}){
         .then((res) => res.json())
         .then((deleted) => setDeleteSong(deleted))
     }
-console.log(deleteSong)
+// console.log(deleteSong)
     return (
         <div className="songlistitem">
         <NavLink to={`/songdisplay/${songInfo?.id}`} >

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {Link, useParams } from 'react-router-dom'
 
 
-const SongDisplay = ({fullSong, setFullSong}) => {
+const SongDisplay = ({fullSong, setFullSong, selectedUser}) => {
 
     const [songCollection, setSongCollection] = useState("")
     const [avgSong, setAvgSong] = useState(null);
@@ -38,7 +38,7 @@ const SongDisplay = ({fullSong, setFullSong}) => {
     // Fetch average rating
     useEffect(() => {
         if(fullSong?.song_id){
-        fetch(`http://localhost:9292/average-song-rating/${fullSong?.song_id}`)
+        fetch(`http://localhost:9292/average-song-rating/${filtered?.song_id}`)
         .then(res => res.json())
         .then(data => {
             setAvgSong(data)
@@ -58,7 +58,7 @@ function handleSubmitUpdate(e){
     e.preventDefault();
     // console.log(newSongRating)
 
-    fetch(`http://localhost:9292/api/collections/${params?.id}`, {
+    fetch(`http://localhost:9292/api/collections/${filtered?.id}`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
@@ -71,7 +71,14 @@ function handleSubmitUpdate(e){
         .then((rating) => setNewSongRating(rating))
     
 }
-
+const filtered = songCollection?.collections?.find(function(name){
+    return name.user_id === selectedUser?.id 
+})
+console.log(filtered?.id)
+// console.log(filtered)
+// console.log(filtered?.song_rating)
+// console.log(selectedUser?.id)
+// console.log(songCollection?.collections[0]?.song_rating)
     return (
         <div className='songdisplay'>
 
@@ -80,7 +87,7 @@ function handleSubmitUpdate(e){
         <p>Title: {songCollection?.title}</p>
         <p>Artist: {songCollection?.artist}</p>
         <p>Genre: {songCollection?.genre}</p>
-        <p>Your Rating: {songCollection?.song_id}   <select name="newrating" value={newSongRating} 
+        <p>Your Rating: {filtered ? filtered?.song_rating : "None"}   <select name="newrating" value={newSongRating} 
             onChange={(e) => setNewSongRating(parseInt(e.target.value)) }>
                 <option value="1">1</option>
                 <option value="2">2</option>
