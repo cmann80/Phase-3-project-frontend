@@ -21,13 +21,17 @@
   border-radius: 10px;
   text-decoration: none; 
   font-weight: bold;
-  
+  border-color: white;
+  border-style: solid;
+  font-family: 'Roboto', sans-serif;
 }
 
 .btn:hover {
   background-position: right center;
   padding: 11px;
 }
+
+
   
 .btn-1 {
   background-image: linear-gradient(to right,  #8EC5FC 0%, #b6c4fc 51%, #E0C3FC 100%);

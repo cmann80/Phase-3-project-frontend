@@ -1,3 +1,8 @@
+# Introduction
+This is our Phase 3 project called Song Collector. You can view playlists and add/delete songs.
+This applicaton will also need the backend which can be viewed here: 
+https://github.com/cindy-qu/phase-3-sinatra-react-project
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
