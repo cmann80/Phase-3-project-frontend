@@ -44,7 +44,7 @@ const UserEntry = ({userFormValue, setUserFormValue, setSelectedUser}) => {
             value={userFormValue}
         />
 
-        <button type="submit" className="btn btn-1" onClick={handleSubmit}> View Song Collection</button>
+        <button type="submit" className="btn btn-1" onClick={handleSubmit} > View Song Collection</button>
         
         
     </div>

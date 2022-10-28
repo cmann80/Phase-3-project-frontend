@@ -71,7 +71,7 @@ const SongEntry = ({ selectedUser, refreshSongList, setSelectedUser }) => {
             onChange={(e) => setSongRating(parseInt(e.target.value)) }/>
             <br/>
 
-        <button type="submit" className="submitButton" onSubmit={handleSubmit}>Add Song</button>
+        <button type="submit" className="btn btn-1" onSubmit={handleSubmit}>Add Song</button>
 
         </form>
         

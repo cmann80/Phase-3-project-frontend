@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./SongListItem.css"
 
@@ -14,7 +14,7 @@ function SongListItem({setFullSong, songInfo, refreshSongList}){
         fetch(`http://localhost:9292/api/songs/${songInfo?.id}`, {
             method: 'DELETE',
         })
-        .then(response => {if(response.ok){}
+        .then(response => {if(response.ok){refreshSongList()}
         })
     }
 // console.log(deleteSong)
@@ -24,7 +24,8 @@ function SongListItem({setFullSong, songInfo, refreshSongList}){
             <li className="listitem"onClick={handleClick}>{songInfo.title}</li>
             
         </NavLink>
-        <button className="btn2" onClick={handleDelete}>delete song</button>
+        <button className="btn2" onClick={handleDelete}>Delete Song</button>
+       
         </div>
     )
     

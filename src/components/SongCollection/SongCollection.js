@@ -1,5 +1,5 @@
 import './SongCollection.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {Link } from 'react-router-dom'
 import SongListItem from "../SongListItem/SongListItem"
 
@@ -23,7 +23,7 @@ function SongCollection ({selectedUser, setFullSong, refreshSongList}) {
               {selectedUser?.songs?.map((songInfo) => (<SongListItem key={songInfo.id} songInfo={songInfo} setFullSong={setFullSong} refreshSongList={refreshSongList} />))}
             </ul>
           </div>
-      <button><Link to="/songentry"> Add New Song</Link></button>
+      <button className="btn btn-1"><Link to="/songentry"> Add New Song</Link></button>
     
     </div>
     )

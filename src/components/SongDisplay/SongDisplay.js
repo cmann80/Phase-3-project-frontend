@@ -102,8 +102,8 @@ console.log(filtered?.id)
 
         <p>{avgSong}</p>
         
-        <button type="submit" className="submitUpdateButton" onClick={handleSubmitUpdate}>Update Your Rating</button>
-        <button><Link to="/songcollection"> Back to Song Collection</Link></button>
+        <button type="submit" className="btn btn-1" onClick={handleSubmitUpdate}>Update Your Rating</button>
+        <button className="btn btn-1"><Link to="/songcollection"> Back to Song Collection</Link></button>
 
         
     
